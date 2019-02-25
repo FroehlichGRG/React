@@ -1,0 +1,85 @@
+----------------------------------------------------------------------------------------
+
+npm init // в папке проекта
+npm i webpack webpack-cli --save-dev
+npm i babel --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react
+npm i react react-dom
+
+
+-Create [webpack.config.js] root directory ----------------------------------------------------------
+
+const path = require('path');
+
+module.exports = {
+    entry: './src/App.js',
+    watch: true,
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    module: {
+        rules: [
+            { test: /\.js$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
+            }
+        ]
+    },
+    mode: 'development'
+}
+
+--создать файл [ .babelrc ] в root directory ----------------------------------------------------------
+
+{
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-env"
+  ]
+}
+
+-создать папку src и поместить в нее файл -[ App.js ] ------------------------------------------------
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class App extends React.Component{
+    render() {
+        return <div>
+            <h1>Первое приложение на React</h1>
+        <p>Hello React!</p>
+        </div>;
+    }
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'));
+
+-- создать файл в папке src [ index.js ] -------------------------------------------------------------
+
+console.log('My first app');
+
+
+-- соддать папку dist и в ней создать файл [index.html]
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root"></div>
+<script src="main.js"></script>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------
+Добавить строчку в файл package.json ("dev": "webpack")
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack"
+  },
+
+------------------------------------------------------------------------------------------------------
+
+npm run dev
