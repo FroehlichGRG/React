@@ -1,5 +1,5 @@
 const externalfile1 = {
-    width: "99%",
+    width: "100%",
     margin: "30px auto",
     backgroundColor: "#CC0000",
     minHeight: "100px",
