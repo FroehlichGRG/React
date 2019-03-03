@@ -4,7 +4,9 @@ npm init // в папке проекта
 npm i webpack webpack-cli --save-dev
 npm i babel --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react
 npm i react react-dom
+npm i css-loader style-loader -D
 
+npm install react-bootstrap bootstrap // Установка Bootstrap ( добавить import 'bootstrap/dist/css/bootstrap.css'; в App.js )
 
 -Create [webpack.config.js] root directory ----------------------------------------------------------
 
@@ -22,6 +24,10 @@ module.exports = {
             { test: /\.js$/,
                 exclude: /node_modules/,
                 use: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     },

@@ -1,0 +1,27 @@
+span.show-more
+{
+    text-decoration: underline;
+    font-size: 0.8rem;
+    color: #bfbfbf;
+    cursor: pointer;
+}
+
+div.full-text
+{
+    padding-top: 10px;
+}
+
+footer
+{
+    background-color: #2196f3;
+}
+
+footer a
+{
+    color: aliceblue;
+}
+
+.footer-copyright
+{
+    background-color: #1a78c2;
+}
