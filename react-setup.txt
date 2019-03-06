@@ -5,8 +5,12 @@ npm i webpack webpack-cli --save-dev
 npm i babel --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react
 npm i react react-dom
 npm i css-loader style-loader -D
+npm i react-bootstrap bootstrap jquery popper.js // Установка Bootstrap ( добавить import 'bootstrap/dist/css/bootstrap.css'; в App.js )
 
-npm install react-bootstrap bootstrap // Установка Bootstrap ( добавить import 'bootstrap/dist/css/bootstrap.css'; в App.js )
+npm i bootstrap jquery popper.js
+npm i react-router@3
+npm i axios
+npm i webpack-dev-server -D
 
 -Create [webpack.config.js] root directory ----------------------------------------------------------
 
@@ -31,7 +35,11 @@ module.exports = {
             }
         ]
     },
-    mode: 'development'
+    mode: 'development',
+    devServer: {
+        historyApiFallback: true,
+        contentBase: path.resolve(__dirname, 'dist')
+    }
 }
 
 --создать файл [ .babelrc ] в root directory ----------------------------------------------------------
@@ -83,7 +91,8 @@ console.log('My first app');
 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack"
+    "dev": "webpack",
+    "start": "webpack-dev-server --open"
   },
 
 ------------------------------------------------------------------------------------------------------
