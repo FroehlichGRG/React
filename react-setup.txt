@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------
-
+   
 npm init // в папке проекта
 npm i webpack webpack-cli --save-dev
 npm i babel --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react
